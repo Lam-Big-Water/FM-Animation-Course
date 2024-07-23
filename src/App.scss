@@ -1,0 +1,34 @@
+:root {
+    --primary-color: lightblue;
+    --duration: 1s;
+    --easing: cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.fund-title {
+    --primary-color: orange;
+    font-size: 5vw;
+    color: var(--primary-color);
+    transition: all .3s;
+    margin: 0;
+    &:hover {
+        font-size: 10vw;
+    }
+}
+
+.fund-ball {
+    width: 3vw;
+    height: 3vw;
+    background-color: var(--primary-color);
+    border-radius: 100%;
+    animation: slide-right var(--duration) var(--easing) infinite;
+}
+
+@keyframes slide-right {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(50vw);
+    }
+}
