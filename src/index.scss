@@ -1,9 +1,6 @@
 // Basic Style
 html,
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100%;
     width: 100%;
     margin: 0;
@@ -45,12 +42,7 @@ button {
     appearance: none;
 }
 
-nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-}
+
 
 // reduce or no-preference
 @media (prefers-reduced-motion: reduce) {

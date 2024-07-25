@@ -40,6 +40,8 @@
 }
 
 // Transition part
+
+
 .transTitle {
     --primary-color: rgb(0, 123, 255);
     font-size: 5vw;
@@ -69,6 +71,7 @@
 }
 
 .transForm {
+    width: 400px;
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: 1fr;
@@ -77,11 +80,11 @@
     padding: 1rem;
     border-radius: 0.25rem;
     background: #fff;
-    box-shadow: 0 0.5rem 1rem #0003;
+    box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.36);
 
-    --color: var(var(--color-gray));
+    --color: var(--color-gray);
     &:focus-within {
-        --color: var(var(--color-blue))
+        --color: var(--color-blue)
     }
 
     &--input {
@@ -91,6 +94,8 @@
         border: 2px solid var(--color);
         border-radius: 0.25rem;
         outline: none;
+        transition-property: border;
+        transition-duration: 0.3s;
     }
 
     &--button {
@@ -101,9 +106,17 @@
         font-weight: bold;
         color: white;
         background-color: var(--color);
+        cursor: pointer;
+        transition-property: background-color, opacity, transform;
+        transition-timing-function: linear, linear, ease;
+        transition-duration: 0.3s;
 
-        span {
-            color: var(--color-gray);
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &:active {
+            transform: translateY(10%);
         }
     }
 }

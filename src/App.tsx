@@ -7,10 +7,10 @@ const App = () => {
   return (
     <div>
       <h1>FM-Animation</h1>
-      <nav>
-        <Link to='/fundamental'>Fundamental</Link>
-        <Link to='/transition'>Transition</Link>
-      </nav>
+        <ul>
+          <li><Link to='/fundamental'>Fundamental</Link></li>
+          <li><Link to='/transition'>Transition</Link></li>
+        </ul>
       <Routes>
         <Route path='/fundamental' element={<Fundamentals />}/>
         <Route path='/transition' element={<Transition />}/>

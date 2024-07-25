@@ -6,7 +6,7 @@ const Transition = () => {
         <div className="transBall"></div>
 
         <form className="transForm">
-          <input type="text" className="transForm--input" />
+          <input type="text" className="transForm--input" placeholder="Your@email.com"/>
           <button className="transForm--button">
             <span>Subscribe</span>
           </button>
