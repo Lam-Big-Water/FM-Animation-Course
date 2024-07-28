@@ -16,9 +16,6 @@
     color: var(--primary-color);
     transition: all .3s;
     margin: 0;
-    &:hover {
-        font-size: 10vw;
-    }
 }
 
 .fund-ball {
@@ -110,6 +107,116 @@
         transition-property: background-color, opacity, transform;
         transition-timing-function: linear, linear, ease;
         transition-duration: 0.3s;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &:active {
+            transform: translateY(10%);
+        }
+    }
+}
+
+// keyframes part
+.keyTitle {
+    --color: var(--color-green);
+    font-size: 5vw;
+    color: var(--color);
+}
+
+.keyBall {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    background-color: var(--color-green);
+    transform: translateX(30vw);
+    animation-name: move-like-a-square, green-to-red;
+    animation-duration: 4s;
+    animation-delay: 1s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes move-like-a-square {
+    0% {
+        transform: none;
+    }
+
+    25% {
+        animation-timing-function: linear;
+        transform: translateX(20vw);
+    }
+
+    50% {
+        transform: translateX(20vw) translateY(20vw);
+    }
+
+    75% {
+        transform: translateX(0) translateY(20vw);
+
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes green-to-red {
+    from {
+        background-color: var(--color-green);
+    }
+
+    to {
+        background-color: red;
+    }
+}
+
+.keyForm {
+    width: 400px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'input button';
+    font-family: serif;
+    font-weight: bold;
+    column-gap: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #fff;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+
+
+
+    --color: var(--color-gray);
+    &:focus-within {
+        --color: var(--color-blue);
+    }
+
+    &--input {
+        grid-area: input;
+        color: var(--color);
+        padding: 10px;
+        border: 2px solid var(--color);
+        border-radius: 5px;
+        outline: none;
+        transition-property: border;
+        transition-duration: 0.3s;
+        transition-timing-function: linear;
+
+    }
+
+    &--btn {
+        grid-area: button;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: var(--color);
+        color: inherit;
+        transition-property: background-color, opacity, transform;
+        transition-duration: 0.3s;
+        transition-timing-function: linear, linear, ease;
 
         &:hover {
             opacity: 0.7;
