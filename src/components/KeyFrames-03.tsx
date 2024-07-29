@@ -2,7 +2,7 @@
 const Transition = () => {
   return (
     <>
-        <h1 className="keyTitle">Transition</h1>
+        <h1 className="keyTitle">keyframes</h1>
         <div className="keyBall"></div>
 
         <form className="keyForm">

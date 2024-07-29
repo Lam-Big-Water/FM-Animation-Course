@@ -205,6 +205,7 @@
         transition-property: border;
         transition-duration: 0.3s;
         transition-timing-function: linear;
+        // transition-delay: 0s;
 
     }
 
@@ -225,5 +226,138 @@
         &:active {
             transform: translateY(10%);
         }
+    }
+}
+
+// keyframesPractice part
+.keyTitle-p {
+    font-size: 5vw;
+    color: rgb(247, 93, 118);
+}
+
+.keyBall-p {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    background: linear-gradient(pink, orange);
+
+    // animation-name: move-around;
+    // animation-duration: 4s;
+    // animation-timing-function: ease;
+    // animation-iteration-count: infinite;
+    // animation-direction: reverse;
+    // animation-fill-mode: both;
+
+    // short form
+    animation: move-around 4s ease 0.1s infinite reverse both;
+
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+@keyframes move-around {
+    from {
+        transform: none;
+    }
+
+    25% {
+        transform: translateX(10vw);
+    }
+
+    50% {
+        transform: translateX(10vw) translateY(10vw);
+    }
+
+    75% {
+        animation-timing-function: linear;
+        transform: translateX(0) translateY(10vw);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+
+.keyForm-p {
+    width: 400px;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr;
+    grid-template-areas: "input button";
+    column-gap: 20px;
+
+    padding: 20px;
+    border-radius: 5px;
+    background: linear-gradient(to left,#1fcdb0, #9198e5);
+    box-shadow: #1fcdb0 0px 4px 8px -2px, #9198e5 0px 0px 0px 1px;
+
+    animation: rise-up 1s ease both;
+
+    &--input,
+    &--btn {
+        animation: rise-up 1s ease-in-out 1s both;
+    }
+
+    &--input {
+        padding: 10px;
+        border-radius: 5px;
+        border: 3px solid var(--color);
+        outline: none;
+
+        &:invalid:not(:focus) {
+            animation: shake 0.3s linear;
+        }
+        
+    }
+
+    &--btn {
+        appearance: none;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: var(--color);
+        
+    }
+
+
+
+}
+
+@keyframes rise-up {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to,
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+@keyframes shake {
+    from,
+    to {
+        transform: none;
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(2%);
+    }
+
+    10%,
+    30%,
+    70%,
+    90% {
+        transform: translateX(-2%);
     }
 }

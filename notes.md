@@ -33,5 +33,58 @@ cubic-bezier(0.5, 0, 0.5, 1);
 
 ## What to animate
 **Transform and opacity -- great**
+
 **Color and background -- good**
+
 **Height, width, left, right, etc -- bad**
+
+### Transition
+**transition-property**
+
+**transition-duration**
+
+**transition-delay**
+
+**transition-timing-function**
+
+```scss
+// short form
+transition: all 2s 0.5s ease-in-out;
+```
+
+
+### @keyframes
+
+**animation-name**
+
+**animation-duration**
+
+**animation-timing-function**
+
+**animation-delay**
+
+**animation-iteration-count**
+
+**animation-direction**
+
+**animation-fill-mode**
+
+
+
+```scss
+// short form
+animation: move-around 4s ease 0.1s infinite reverse both;
+
+@keyframes {
+	from {
+		transform: none;
+	}
+
+	to {
+		transform: translateX(20vw);
+	}
+}
+```
+- :focus-within {}
+- :invalid:not(:focus) {}
+- animation-play-state: paused;
