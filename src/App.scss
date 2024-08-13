@@ -1,0 +1,418 @@
+:root {
+    --primary-color: lightblue;
+    --duration: 1s;
+    --easing: cubic-bezier(0.5, 0, 0.5, 1);
+
+    --color-gray: #8c97b7;
+    --color-blue: #1c38f1;
+    --color-green: #1fcdb0;
+    --input-height: 3rem;
+}
+
+// Fundamental part
+.fund-title {
+    --primary-color: orange;
+    font-size: 5vw;
+    color: var(--primary-color);
+    transition: all .3s;
+    margin: 0;
+}
+
+.fund-ball {
+    width: 3vw;
+    height: 3vw;
+    background-color: var(--primary-color);
+    border-radius: 100%;
+    animation: slide-right var(--duration) var(--easing) infinite;
+}
+
+@keyframes slide-right {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(50vw);
+    }
+}
+
+// Transition part
+
+
+.transTitle {
+    --primary-color: rgb(0, 123, 255);
+    font-size: 5vw;
+    color: var(--primary-color);
+}
+
+.transBall {
+    left: 50vw;
+    height: 5vh;
+    width: 5vh;
+    border-radius: 50%;
+    background: linear-gradient(#e66465, #9198e5);
+
+    // transition-property: background, transform;
+    // transition-duration: 3s, 1s;
+    // transition-timing-function: linear, ease-in-out;
+
+
+    // short form
+    transition: all 2s 0.5s ease-in-out;
+
+    &:hover {
+        background: blue;
+        transform: scale(2);
+        opacity: 0.5;
+    }
+}
+
+.transForm {
+    width: 400px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr;
+    column-gap: 1rem;
+    grid-template-areas: 'input button';
+    padding: 1rem;
+    border-radius: 0.25rem;
+    background: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.36);
+
+    --color: var(--color-gray);
+    &:focus-within {
+        --color: var(--color-blue)
+    }
+
+    &--input {
+        grid-area: input;
+        height: var(--input-height);
+        padding: 0 1rem;
+        border: 2px solid var(--color);
+        border-radius: 0.25rem;
+        outline: none;
+        transition-property: border;
+        transition-duration: 0.3s;
+    }
+
+    &--button {
+        grid-area: button;
+        height: var(--input-height);
+        padding: 0 1rem;
+        border-radius: 0.25rem;
+        font-weight: bold;
+        color: white;
+        background-color: var(--color);
+        cursor: pointer;
+        transition-property: background-color, opacity, transform;
+        transition-timing-function: linear, linear, ease;
+        transition-duration: 0.3s;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &:active {
+            transform: translateY(10%);
+        }
+    }
+}
+
+// keyframes part
+.keyTitle {
+    --color: var(--color-green);
+    font-size: 5vw;
+    color: var(--color);
+}
+
+.keyBall {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    background-color: var(--color-green);
+    transform: translateX(30vw);
+    animation-name: move-like-a-square, green-to-red;
+    animation-duration: 4s;
+    animation-delay: 1s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes move-like-a-square {
+    0% {
+        transform: none;
+    }
+
+    25% {
+        animation-timing-function: linear;
+        transform: translateX(20vw);
+    }
+
+    50% {
+        transform: translateX(20vw) translateY(20vw);
+    }
+
+    75% {
+        transform: translateX(0) translateY(20vw);
+
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes green-to-red {
+    from {
+        background-color: var(--color-green);
+    }
+
+    to {
+        background-color: red;
+    }
+}
+
+.keyForm {
+    width: 400px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'input button';
+    font-family: serif;
+    font-weight: bold;
+    column-gap: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #fff;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+
+
+
+    --color: var(--color-gray);
+    &:focus-within {
+        --color: var(--color-blue);
+    }
+
+    &--input {
+        grid-area: input;
+        color: var(--color);
+        padding: 10px;
+        border: 2px solid var(--color);
+        border-radius: 5px;
+        outline: none;
+        transition-property: border;
+        transition-duration: 0.3s;
+        transition-timing-function: linear;
+        // transition-delay: 0s;
+
+    }
+
+    &--btn {
+        grid-area: button;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: var(--color);
+        color: inherit;
+        transition-property: background-color, opacity, transform;
+        transition-duration: 0.3s;
+        transition-timing-function: linear, linear, ease;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &:active {
+            transform: translateY(10%);
+        }
+    }
+}
+
+// keyframesPractice part
+.keyTitle-p {
+    font-size: 5vw;
+    color: rgb(247, 93, 118);
+}
+
+.keyBall-p {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    background: linear-gradient(pink, orange);
+
+    // animation-name: move-around;
+    // animation-duration: 4s;
+    // animation-timing-function: ease;
+    // animation-iteration-count: infinite;
+    // animation-direction: reverse;
+    // animation-fill-mode: both;
+
+    // short form
+    animation: move-around 4s ease 0.1s infinite reverse both;
+
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+@keyframes move-around {
+    from {
+        transform: none;
+    }
+
+    25% {
+        transform: translateX(10vw);
+    }
+
+    50% {
+        transform: translateX(10vw) translateY(10vw);
+    }
+
+    75% {
+        animation-timing-function: linear;
+        transform: translateX(0) translateY(10vw);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+
+.keyForm-p {
+    width: 400px;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr;
+    grid-template-areas: "input button";
+    column-gap: 20px;
+
+    padding: 20px;
+    border-radius: 5px;
+    background: linear-gradient(to left,#1fcdb0, #9198e5);
+    box-shadow: #1fcdb0 0px 4px 8px -2px, #9198e5 0px 0px 0px 1px;
+
+    animation: rise-up 1s ease both;
+
+    &--input,
+    &--btn {
+        animation: rise-up 1s ease-in-out 1s both;
+    }
+
+    &--input {
+        padding: 10px;
+        border-radius: 5px;
+        border: 3px solid var(--color);
+        outline: none;
+
+        &:invalid:not(:focus) {
+            animation: shake 0.3s linear;
+        }
+        
+    }
+
+    &--btn {
+        appearance: none;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: var(--color);
+        
+    }
+
+
+
+}
+
+@keyframes rise-up {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to,
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+@keyframes shake {
+    from,
+    to {
+        transform: none;
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(2%);
+    }
+
+    10%,
+    30%,
+    70%,
+    90% {
+        transform: translateX(-2%);
+    }
+}
+
+
+// Choreography
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &--ball {
+        width: 5vw;
+        height: 5vw;
+        border-radius: 50%;
+        background-color: red;
+
+        --duration: 1s;
+        animation: move-to-right calc(var(--i) * 1s) ease both;
+
+        // &:nth-child(2) {animation-delay: var(--duration);}
+        // &:nth-child(3) {animation-delay: calc(var(--duration) * 2);}
+    }
+
+
+
+    @keyframes move-to-right {
+        from {
+           transform: none; 
+        }
+
+        to {
+            transform: translateX(50vw);
+        }
+    }
+}
+
+
+.states-button {
+    appearance: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--color);
+    transition: all .3s;
+
+    &:hover {
+        opacity: 0.5;
+    }
+
+    &:active {
+        transform: translateY(10%);
+        opacity: 1;
+    }
+
+}
+.blueB {
+    background-color: blue;
+}
